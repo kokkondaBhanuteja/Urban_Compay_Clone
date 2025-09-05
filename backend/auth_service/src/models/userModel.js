@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema({
         enum: ['consumer', 'provider', 'admin'],
         required: true
     },
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true, // This allows multiple documents to have a null value for this field
+    },
 }, { timestamps: true });
 
 // Hash password before saving a new user
